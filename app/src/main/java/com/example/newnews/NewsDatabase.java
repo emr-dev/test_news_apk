@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
-@Database(entities = {News.class},version = 2)
+@Database(entities = {News.class},version = 3)
 public abstract class NewsDatabase extends RoomDatabase {
 
     private static NewsDatabase instance;
@@ -49,13 +49,13 @@ public abstract class NewsDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
 
-              newsDao.insert(new News("Название новости","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
-              newsDao.insert(new News("Название новости 1","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
-              newsDao.insert(new News("Название новости 2","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
-              newsDao.insert(new News("Название новости 3","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
-              newsDao.insert(new News("Название новости 4","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
-              newsDao.insert(new News("Название новости 5","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
-              newsDao.insert(new News("Название новости 6","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg",0));
+              newsDao.insert(new News("Название новости","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 1","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 2","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 3","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 4","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 5","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 6","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
             return null;
         }
     }

@@ -16,13 +16,16 @@ public class News {
 
     private String image;
 
+    private String date;
+
     private int sort;
 
 
-    public News(String name, String description, String image, int sort) {
+    public News(String name, String description, String image,  String date,  int sort) {
         this.name = name;
         this.description = description;
         this.image = image;
+        this.date = date;
         this.sort = sort;
     }
 
@@ -48,5 +51,9 @@ public class News {
 
     public int getSort() {
         return sort;
+    }
+
+    public String getDate() {
+        return date;
     }
 }
