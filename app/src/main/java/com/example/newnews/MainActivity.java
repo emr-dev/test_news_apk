@@ -6,16 +6,30 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
 
     private NewsViewModel newsViewModel;
+    OkHttpClient client = new OkHttpClient();
 
 
     @Override
@@ -38,5 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 newsAdapter.setNews(news);
             }
         });
-}
+
+    }
+
+
 }

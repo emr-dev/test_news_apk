@@ -1,14 +1,25 @@
 package com.example.newnews;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +42,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         holder.title.setText(current_news.getName());
         holder.description.setText(current_news.getDescription());
         holder.date.setText(current_news.getDate());
+
+
+        Glide.with(holder.image.getContext())
+                .load(current_news.getImage())
+                .into(holder.image);
+
     }
 
 
@@ -49,11 +66,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         private TextView title;
         private TextView description;
         private TextView date;
+        private ImageView image;
 
         public NewsHolder(View itemView){
             super(itemView);
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
+            image = itemView.findViewById(R.id.image);
             date = itemView.findViewById(R.id.date);
         }
     }
