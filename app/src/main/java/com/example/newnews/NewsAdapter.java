@@ -1,5 +1,7 @@
 package com.example.newnews;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -23,10 +25,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder>{
 
     private List<News>  news = new ArrayList<>();
-
 
     @NonNull
     @Override
@@ -48,6 +49,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
                 .load(current_news.getImage())
                 .into(holder.image);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DetalActivity.class );
+                intent.putExtra("EXTRA_TITLE", current_news.getName() );
+                intent.putExtra("EXTRA_DESCRIPTION", current_news.getDescription() );
+                intent.putExtra("EXTRA_DATE", current_news.getDate() );
+                intent.putExtra("EXTRA_IMAGE", current_news.getImage() );
+                view.getContext().startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -62,12 +75,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         return news.size();
     }
 
+
+
     class NewsHolder extends RecyclerView.ViewHolder{
         private TextView title;
         private TextView description;
         private TextView date;
         private ImageView image;
-
         public NewsHolder(View itemView){
             super(itemView);
             title = itemView.findViewById(R.id.title);
