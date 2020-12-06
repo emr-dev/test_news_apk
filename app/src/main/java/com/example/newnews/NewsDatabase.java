@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
-@Database(entities = {News.class},version = 3)
+@Database(entities = {News.class},version = 4)
 public abstract class NewsDatabase extends RoomDatabase {
 
     private static NewsDatabase instance;
@@ -20,7 +20,7 @@ public abstract class NewsDatabase extends RoomDatabase {
     public static synchronized NewsDatabase getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    NewsDatabase.class,"news_database")
+                    NewsDatabase.class,"nexws_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallBack)
                     .build();
@@ -43,7 +43,7 @@ public abstract class NewsDatabase extends RoomDatabase {
 
 
         private PopulateDbAsyncTask(NewsDatabase db){
-            this.newsDao = db.newsDao();
+              newsDao = db.newsDao();
         }
 
         @Override
@@ -55,6 +55,7 @@ public abstract class NewsDatabase extends RoomDatabase {
               newsDao.insert(new News("Название новости 3","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
               newsDao.insert(new News("Название новости 4","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
               newsDao.insert(new News("Название новости 5","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
+              newsDao.insert(new News("Название новости 6","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
               newsDao.insert(new News("Название новости 6","Описание","https://risimore.ru/image/catalog/iiko_biz/c7529a1c-5deb-419e-bd1f-793e3f6f3370.jpg","12.11.15",0));
             return null;
         }

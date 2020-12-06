@@ -40,9 +40,6 @@ public class NewsViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<News>> getAllNews(){
-
-        if(allNews==null)
-            allNews = repository.getAllNews();
         return allNews;
     }
 }
